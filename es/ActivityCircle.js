@@ -14,11 +14,6 @@ import CircularProgress from 'material-ui/CircularProgress';
 import * as Colors from 'material-ui/styles/colors';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-// images
-import exerciseImg from './images/exercise.png';
-import moveImg from './images/move.png';
-import standImg from './images/stand.png';
-
 // open source
 import Confetti from 'react-confetti';
 
@@ -96,7 +91,10 @@ var ActivityCircle = function (_Component) {
                 max: goal
               })
             ),
-            React.createElement('img', { src: moveImg, style: styles.moveImg }),
+            React.createElement('img', {
+              src: 'https://storage.googleapis.com/wid-images/exercise.png',
+              style: styles.moveImg
+            }),
             React.createElement(
               'div',
               { style: styles.exercise },
@@ -109,7 +107,10 @@ var ActivityCircle = function (_Component) {
                 max: 30
               })
             ),
-            React.createElement('img', { src: exerciseImg, style: styles.exerciseImg }),
+            React.createElement('img', {
+              src: 'https://storage.googleapis.com/wid-images/move.png',
+              style: styles.exerciseImg
+            }),
             React.createElement(
               'div',
               { style: styles.stand },
@@ -122,7 +123,10 @@ var ActivityCircle = function (_Component) {
                 max: 12
               })
             ),
-            React.createElement('img', { src: standImg, style: styles.standImg })
+            React.createElement('img', {
+              src: 'https://storage.googleapis.com/wid-images/stand.png',
+              style: styles.standImg
+            })
           ),
           React.createElement(
             'div',

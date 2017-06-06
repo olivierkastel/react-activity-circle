@@ -6,11 +6,6 @@ import CircularProgress from 'material-ui/CircularProgress';
 import * as Colors from 'material-ui/styles/colors';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-// images
-import exerciseImg from './images/exercise.png';
-import moveImg from './images/move.png';
-import standImg from './images/stand.png';
-
 // open source
 import Confetti from 'react-confetti';
 
@@ -64,7 +59,10 @@ export default class ActivityCircle extends Component {
                 max={goal}
               />
             </div>
-            <img src={moveImg} style={styles.moveImg} />
+            <img
+              src={'https://storage.googleapis.com/wid-images/exercise.png'}
+              style={styles.moveImg}
+            />
             <div style={styles.exercise}>
               <CircularProgress
                 mode="determinate"
@@ -75,7 +73,10 @@ export default class ActivityCircle extends Component {
                 max={30}
               />
             </div>
-            <img src={exerciseImg} style={styles.exerciseImg} />
+            <img
+              src={'https://storage.googleapis.com/wid-images/move.png'}
+              style={styles.exerciseImg}
+            />
             <div style={styles.stand}>
               <CircularProgress
                 mode="determinate"
@@ -86,7 +87,10 @@ export default class ActivityCircle extends Component {
                 max={12}
               />
             </div>
-            <img src={standImg} style={styles.standImg} />
+            <img
+              src={'https://storage.googleapis.com/wid-images/stand.png'}
+              style={styles.standImg}
+            />
           </div>
           <div style={styles.message}>
             <span style={styles.text}>{ message }</span>
