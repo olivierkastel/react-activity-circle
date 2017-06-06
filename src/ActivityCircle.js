@@ -11,6 +11,10 @@ import exerciseImg from './images/exercise.png';
 import moveImg from './images/move.png';
 import standImg from './images/stand.png';
 
+// open source
+import Confetti from 'react-confetti';
+
+// styles
 import styles from './styles';
 
 export default class ActivityCircle extends Component {
@@ -46,7 +50,7 @@ export default class ActivityCircle extends Component {
     const { goal, move, stand, exercise } = this.props;
     const { message } = this.state;
 
-    return (
+    const JSX = (
       <MuiThemeProvider>
         <div>
           <div style={styles.container}>
@@ -90,5 +94,8 @@ export default class ActivityCircle extends Component {
         </div>
       </MuiThemeProvider>
     );
+
+    return (goal === move) ?
+      <div><Confetti />{JSX}</div> : JSX;
   }
 }
