@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 // material-ui
 import CircularProgress from 'material-ui/CircularProgress';
 import * as Colors from 'material-ui/styles/colors';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 // images
 import exerciseImg from './images/exercise.png';
@@ -46,6 +47,7 @@ export default class ActivityCircle extends Component {
     const { message } = this.state;
 
     return (
+      <MuiThemeProvider>
         <div>
           <div style={styles.container}>
             <div style={styles.move}>
@@ -86,6 +88,7 @@ export default class ActivityCircle extends Component {
             <span style={styles.text}>{ message }</span>
           </div>
         </div>
+      </MuiThemeProvider>
     );
   }
 }

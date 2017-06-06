@@ -97,13 +97,11 @@ class Index extends React.Component { // eslint-disable-line
     }
 
     return (
-      <MuiThemeProvider>
+      <div className="component-documentation">
         <div className="component-documentation">
-          <div className="component-documentation">
-            <Playground codeText={ActivityCircleExample} scope={{ React, ActivityCircle }} />
-          </div>
+          <Playground codeText={ActivityCircleExample} scope={{ React, ActivityCircle }} />
         </div>
-      </MuiThemeProvider>
+      </div>
     );
   }
 }
