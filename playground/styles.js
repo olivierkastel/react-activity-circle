@@ -1,7 +1,7 @@
 export default {
   controlPanel: {
     width: 180,
-    background: '#eeeeee',
+    background: '#f5f5f5',
     marginTop: 15,
     marginRight: 15,
     marginLeft: 15,

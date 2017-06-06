@@ -24,12 +24,12 @@ export default class ActivityCircle extends Component {
     message: 'Keep Going !',
   }
 
-  componentWillReceiveProps() {
-    const { goal, move } = this.props;
-    const ratio = move / goal * 100;
+  componentWillReceiveProps(nextProps) {
+    const { goal, move } = nextProps;
+    const ratio = Math.floor(move / goal * 100);
 
     if (ratio < 25) {
-      this.setState({ message: 'You should run now !' });
+      this.setState({ message: 'Wake up and move !' });
     } else if (ratio < 50) {
       this.setState({ message: 'Keep Going' });
     } else if (ratio < 75) {

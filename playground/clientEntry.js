@@ -45,7 +45,10 @@ class Index extends React.Component { // eslint-disable-line
         <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
           <div className="component-documentation">
             <ActivityCircle
-              {...this.state}
+              goal={goal}
+              move={move}
+              stand={stand}
+              exercise={exercise}
             />
           <div style={styles.controlPanel}>
             <div style={styles.text}>Move:
