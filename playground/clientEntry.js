@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import Playground from 'component-playground';
-import SeedComponent from '../src';
+import ActivityCircle from '../src';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
-const SeedComponentExample = require('raw!../src/SeedComponent.example');
+const ActivityCircleExample = require('raw!../src/ActivityCircle.example');
 
 class Index extends React.Component { // eslint-disable-line
   static propTypes = {
@@ -23,7 +23,7 @@ class Index extends React.Component { // eslint-disable-line
     if (dev) {
       return (
         <div className="component-documentation">
-          <SeedComponent
+          <ActivityCircle
             goal={800}
             move={800}
             stand={4}
@@ -36,7 +36,7 @@ class Index extends React.Component { // eslint-disable-line
     return (
       <div className="component-documentation">
         <div className="component-documentation">
-          <Playground codeText={SeedComponentExample} scope={{ React, SeedComponent }} />
+          <Playground codeText={ActivityCircleExample} scope={{ React, ActivityCircle }} />
         </div>
       </div>
     );
