@@ -1,5 +1,5 @@
 {
-  "name": "quiver-new-component",
+  "name": "react-activity-circle",
   "version": "1.0.0",
   "description": "<%= componentName %> - React component",
   "main": "lib/index.js",
