@@ -48,21 +48,21 @@ export default {
     position: 'absolute',
     zIndex: 1000,
     height: 10,
-    marginLeft: 85,
-    marginTop: 5
+    marginLeft: 86,
+    marginTop: 4
   },
   exerciseImg: {
     position: 'absolute',
     zIndex: 1000,
     height: 10,
     marginLeft: 85,
-    marginTop: 23
+    marginTop: 24
   },
   standImg: {
     position: 'absolute',
     zIndex: 1000,
     height: 9,
     marginLeft: 85,
-    marginTop: 44
+    marginTop: 45
   }
 };

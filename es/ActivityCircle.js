@@ -12,12 +12,17 @@ import PropTypes from 'prop-types';
 // material-ui
 import CircularProgress from 'material-ui/CircularProgress';
 import * as Colors from 'material-ui/styles/colors';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 // images
 import exerciseImg from './images/exercise.png';
 import moveImg from './images/move.png';
 import standImg from './images/stand.png';
 
+// open source
+import Confetti from 'react-confetti';
+
+// styles
 import styles from './styles';
 
 var ActivityCircle = function (_Component) {
@@ -70,62 +75,73 @@ var ActivityCircle = function (_Component) {
       var message = this.state.message;
 
 
-      return React.createElement(
-        'div',
+      var JSX = React.createElement(
+        MuiThemeProvider,
         null,
         React.createElement(
           'div',
-          { style: styles.container },
+          null,
           React.createElement(
             'div',
-            { style: styles.move },
-            React.createElement(CircularProgress, {
-              mode: 'determinate',
-              thickness: 18,
-              color: Colors.redA400,
-              value: move || 0,
-              size: 180,
-              max: goal
-            })
+            { style: styles.container },
+            React.createElement(
+              'div',
+              { style: styles.move },
+              React.createElement(CircularProgress, {
+                mode: 'determinate',
+                thickness: 18,
+                color: Colors.redA400,
+                value: move || 0,
+                size: 180,
+                max: goal
+              })
+            ),
+            React.createElement('img', { src: moveImg, style: styles.moveImg }),
+            React.createElement(
+              'div',
+              { style: styles.exercise },
+              React.createElement(CircularProgress, {
+                mode: 'determinate',
+                thickness: 18,
+                color: Colors.lightGreenA700,
+                value: exercise || 0,
+                size: 140,
+                max: 30
+              })
+            ),
+            React.createElement('img', { src: exerciseImg, style: styles.exerciseImg }),
+            React.createElement(
+              'div',
+              { style: styles.stand },
+              React.createElement(CircularProgress, {
+                mode: 'determinate',
+                thickness: 18,
+                color: Colors.cyanA400,
+                value: stand || 0,
+                size: 100,
+                max: 12
+              })
+            ),
+            React.createElement('img', { src: standImg, style: styles.standImg })
           ),
-          React.createElement('img', { src: moveImg, style: styles.moveImg }),
           React.createElement(
             'div',
-            { style: styles.exercise },
-            React.createElement(CircularProgress, {
-              mode: 'determinate',
-              thickness: 18,
-              color: Colors.lightGreenA700,
-              value: exercise || 0,
-              size: 140,
-              max: 30
-            })
-          ),
-          React.createElement('img', { src: exerciseImg, style: styles.exerciseImg }),
-          React.createElement(
-            'div',
-            { style: styles.stand },
-            React.createElement(CircularProgress, {
-              mode: 'determinate',
-              thickness: 18,
-              color: Colors.cyanA400,
-              value: stand || 0,
-              size: 100,
-              max: 12
-            })
-          ),
-          React.createElement('img', { src: standImg, style: styles.standImg })
-        ),
-        React.createElement(
-          'div',
-          { style: styles.message },
-          React.createElement(
-            'span',
-            { style: styles.text },
-            message
+            { style: styles.message },
+            React.createElement(
+              'span',
+              { style: styles.text },
+              message
+            )
           )
         )
       );
+
+      return goal === move ? React.createElement(
+        'div',
+        null,
+        React.createElement(Confetti, null),
+        JSX
+      ) : JSX;
     }
   }]);
 
