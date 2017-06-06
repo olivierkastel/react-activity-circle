@@ -1,0 +1,6 @@
+<ActivityCircle
+  goal={600}
+  move={450}
+  stand={10}
+  exercise={20}
+/>
