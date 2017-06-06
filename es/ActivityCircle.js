@@ -10,7 +10,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 // material-ui
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import CircularProgress from 'material-ui/CircularProgress';
 import * as Colors from 'material-ui/styles/colors';
 
@@ -42,15 +41,14 @@ var ActivityCircle = function (_Component) {
 
   _createClass(ActivityCircle, [{
     key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps() {
-      var _props = this.props,
-          goal = _props.goal,
-          move = _props.move;
+    value: function componentWillReceiveProps(nextProps) {
+      var goal = nextProps.goal,
+          move = nextProps.move;
 
-      var ratio = move / goal * 100;
+      var ratio = Math.floor(move / goal * 100);
 
       if (ratio < 25) {
-        this.setState({ message: 'You should run now !' });
+        this.setState({ message: 'Wake up and move !' });
       } else if (ratio < 50) {
         this.setState({ message: 'Keep Going' });
       } else if (ratio < 75) {
@@ -64,71 +62,67 @@ var ActivityCircle = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _props2 = this.props,
-          goal = _props2.goal,
-          move = _props2.move,
-          stand = _props2.stand,
-          exercise = _props2.exercise;
+      var _props = this.props,
+          goal = _props.goal,
+          move = _props.move,
+          stand = _props.stand,
+          exercise = _props.exercise;
       var message = this.state.message;
 
 
       return React.createElement(
-        MuiThemeProvider,
+        'div',
         null,
         React.createElement(
           'div',
-          null,
+          { style: styles.container },
           React.createElement(
             'div',
-            { style: styles.container },
-            React.createElement(
-              'div',
-              { style: styles.move },
-              React.createElement(CircularProgress, {
-                mode: 'determinate',
-                thickness: 18,
-                color: Colors.redA400,
-                value: move || 0,
-                size: 180,
-                max: goal
-              })
-            ),
-            React.createElement('img', { src: moveImg, style: styles.moveImg }),
-            React.createElement(
-              'div',
-              { style: styles.exercise },
-              React.createElement(CircularProgress, {
-                mode: 'determinate',
-                thickness: 18,
-                color: Colors.lightGreenA700,
-                value: exercise || 0,
-                size: 140,
-                max: 30
-              })
-            ),
-            React.createElement('img', { src: exerciseImg, style: styles.exerciseImg }),
-            React.createElement(
-              'div',
-              { style: styles.stand },
-              React.createElement(CircularProgress, {
-                mode: 'determinate',
-                thickness: 18,
-                color: Colors.cyanA400,
-                value: stand || 0,
-                size: 100,
-                max: 12
-              })
-            ),
-            React.createElement('img', { src: standImg, style: styles.standImg })
+            { style: styles.move },
+            React.createElement(CircularProgress, {
+              mode: 'determinate',
+              thickness: 18,
+              color: Colors.redA400,
+              value: move || 0,
+              size: 180,
+              max: goal
+            })
           ),
+          React.createElement('img', { src: moveImg, style: styles.moveImg }),
           React.createElement(
             'div',
-            { style: styles.message },
-            React.createElement(
-              'span',
-              { style: styles.text },
-              message
-            )
+            { style: styles.exercise },
+            React.createElement(CircularProgress, {
+              mode: 'determinate',
+              thickness: 18,
+              color: Colors.lightGreenA700,
+              value: exercise || 0,
+              size: 140,
+              max: 30
+            })
+          ),
+          React.createElement('img', { src: exerciseImg, style: styles.exerciseImg }),
+          React.createElement(
+            'div',
+            { style: styles.stand },
+            React.createElement(CircularProgress, {
+              mode: 'determinate',
+              thickness: 18,
+              color: Colors.cyanA400,
+              value: stand || 0,
+              size: 100,
+              max: 12
+            })
+          ),
+          React.createElement('img', { src: standImg, style: styles.standImg })
+        ),
+        React.createElement(
+          'div',
+          { style: styles.message },
+          React.createElement(
+            'span',
+            { style: styles.text },
+            message
           )
         )
       );
